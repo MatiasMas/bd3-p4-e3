@@ -3,9 +3,9 @@ package logicaPersistencia.valueObjects;
 public class VOFolio {
     private String codigo;
     private String caratula;
-    private int paginas;
+    private String paginas;
 
-    public VOFolio(String codigo, String caratula, int paginas) {
+    public VOFolio(String codigo, String caratula, String paginas) {
         this.codigo = codigo;
         this.caratula = caratula;
         this.paginas = paginas;
@@ -19,7 +19,7 @@ public class VOFolio {
         return caratula;
     }
 
-    public int getPaginas() {
+    public String getPaginas() {
         return paginas;
     }
 }

@@ -21,6 +21,11 @@ public class Consultas {
         return query;
     }
 
+    public String ultimoNumeroDeRevision(){
+        String query = "SELECT MAX(numero) FROM revisiones WHERE codFolio = ?";
+        return query;
+    }
+
     public String contarRevisionesPorFolio() {
         String query = "SELECT COUNT(*) FROM revisiones WHERE codFolio = ?";
         return query;
@@ -36,23 +41,23 @@ public class Consultas {
         return query;
     }
 
-    public String darDescripcion() {
-        String query = "SELECT descripcion FROM revisiones WHERE codFolio = ? ";
+    public String darDescripcionPorFolioYNumero() {
+        String query = "SELECT descripcion FROM revisiones WHERE codFolio = ? AND numero = ?";
+        return query;
+    }
+
+    public String existeRevision() {
+        String query = "SELECT * FROM revisiones WHERE codFolio = ? AND numero = ?";
         return query;
     }
 
     public String listarFolios() {
-        String query = "SELECT * FROM folios";
+        String query = "SELECT * FROM folios ORDER BY codigo ASC";
         return query;
     }
 
     public String listarRevisiones() {
-        String query = "SELECT * FROM revisiones";
-        return query;
-    }
-
-    public String folioMasRevisado() {
-        String query = "SELECT COUNT(*) AS cantidadRevs FROM revisiones WHERE codFolio = ?";
+        String query = "SELECT * FROM revisiones ORDER BY codFolio ASC";
         return query;
     }
 }
